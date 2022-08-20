@@ -1,0 +1,6 @@
+WITH RECURSIVE R AS (
+    SELECT 1 AS n, CAST('* ' AS CHAR(40)) AS str
+    UNION ALL 
+    SELECT n + 1, CONCAT(str, '* ') FROM R WHERE n < 20)
+SELECT str FROM R
+ORDER BY n DESC;
